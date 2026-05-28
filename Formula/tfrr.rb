@@ -9,10 +9,6 @@ class Tfrr < Formula
       url "https://github.com/jimberlage/tfrr/releases/download/v0.1.0/tfrr-aarch64-apple-darwin.tar.gz"
       sha256 "REPLACE_WITH_SHA256"
     end
-    on_intel do
-      url "https://github.com/jimberlage/tfrr/releases/download/v0.1.0/tfrr-x86_64-apple-darwin.tar.gz"
-      sha256 "REPLACE_WITH_SHA256"
-    end
   end
 
   on_linux do

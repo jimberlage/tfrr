@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 permissions:
   contents: write
@@ -16,11 +16,8 @@ jobs:
       matrix:
         include:
           - target: aarch64-apple-darwin
-            os: macos-14  # Apple Silicon runner
+            os: macos-14 # Apple Silicon runner
             artifact: tfrr-aarch64-apple-darwin
-          - target: x86_64-apple-darwin
-            os: macos-13  # Intel runner
-            artifact: tfrr-x86_64-apple-darwin
           - target: x86_64-unknown-linux-gnu
             os: ubuntu-latest
             artifact: tfrr-x86_64-linux
@@ -79,12 +76,12 @@ jobs:
         run: |
           mkdir -p release
           find artifacts -type f \( -name "*.tar.gz" -o -name "*.sha256" \) -exec cp {} release/ \;
-          
+
           echo "## SHA256 Checksums" > release/checksums.md
           echo '```' >> release/checksums.md
           cat release/*.sha256 >> release/checksums.md
           echo '```' >> release/checksums.md
-          
+
           echo ""
           echo "=== SHA256 checksums for Formula/tfrr.rb ==="
           cat release/*.sha256
